@@ -3,16 +3,19 @@
 Javascript eXtended Random number generator
 
 ## Installation
-
-    `npm i jxrand`
+```
+    npm i jxrand
+```
 
 ## Usage
-
+```js
     var JXRand = require('JXRand');
 
     var randomInt = JXRand.getInteger(0, 10); // A random integer in the interval [0, 10]
     var randomFloat = JXRand.getFloat(0, 2); // A random float in the interval [0, 2]
+```
 
 ## Tests
-
-    `npm test`
+```
+    npm test
+```
