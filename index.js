@@ -23,4 +23,4 @@ const JXRand = {
     getFloat
 }
 
-export default { JXRand };
+module.exports = JXRand;
