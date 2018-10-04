@@ -2,6 +2,10 @@
 =========
 Javascript eXtended Random number generator
 
+## Installation
+
+    `npm i jxrand`
+
 ## Usage
 
     var JXRand = require('JXRand');
