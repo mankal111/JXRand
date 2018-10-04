@@ -6,7 +6,7 @@ Javascript eXtended Random number generator
 
     var JXRand = require('JXRand');
 
-    var randomInt = JXRand.getInteger(0, 10); // A random integer in the interval [0, 1]
+    var randomInt = JXRand.getInteger(0, 10); // A random integer in the interval [0, 10]
     var randomFloat = JXRand.getFloat(0, 2); // A random float in the interval [0, 2]
 
 ## Tests
