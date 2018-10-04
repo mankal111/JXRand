@@ -1,0 +1,24 @@
+{
+  "name": "jxrand",
+  "version": "0.1.0",
+  "description": "Javascript extended random number generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mankal111/JXRand.git"
+  },
+  "keywords": [
+    "javascript",
+    "random",
+    "generator"
+  ],
+  "author": "Manolis Kalafatis <mankal111@hotmail.com> (https://github.com/mankal111)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mankal111/JXRand/issues"
+  },
+  "homepage": "https://github.com/mankal111/JXRand#readme"
+}
