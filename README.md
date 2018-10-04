@@ -1,4 +1,4 @@
-JXRand
+#JXRand [![Build Status](https://travis-ci.org/mankal111/JXRand.svg?branch=master)](https://travis-ci.org/mankal111/JXRand) [![Coverage Status](https://coveralls.io/repos/github/mankal111/JXRand/badge.svg?branch=master)](https://coveralls.io/github/mankal111/JXRand?branch=master)
 =========
 Javascript eXtended Random number generator
 
@@ -12,7 +12,3 @@ Javascript eXtended Random number generator
 ## Tests
 
     `npm test`
-
-[![Build Status](https://travis-ci.org/mankal111/JXRand.svg?branch=master)](https://travis-ci.org/mankal111/JXRand)
-
-[![Coverage Status](https://coveralls.io/repos/github/mankal111/JXRand/badge.svg?branch=master)](https://coveralls.io/github/mankal111/JXRand?branch=master)
