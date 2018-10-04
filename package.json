@@ -1,6 +1,6 @@
 {
   "name": "jxrand",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Javascript extended random number generator",
   "main": "index.js",
   "scripts": {
