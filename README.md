@@ -4,7 +4,7 @@ Javascript eXtended Random number generator
 
 ## Installation
 
-    `npm i jxrand`
+    npm i jxrand
 
 ## Usage
 
