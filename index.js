@@ -6,8 +6,13 @@
  * @param {number} maximum
  * @return {number}
  */
-const getInteger = (min, max) => 
-    Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
+const getInteger = (min, max) => {
+    if (isNaN(min) || isNaN(max)) {
+        throw "Parameter is not a number!";
+    } else {
+        return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
+    }
+}
 
 /**
  * Return a random float
@@ -15,8 +20,13 @@ const getInteger = (min, max) =>
  * @param {number} maximum
  * @return {number}
  */
-const getFloat = (min, max) =>
-    Math.random() * (max - min) + min;
+const getFloat = (min, max) => {
+    if (isNaN(min) || isNaN(max)) {
+        throw "Parameter is not a number!";
+    } else {
+        return Math.random() * (max - min) + min;
+    }
+}
 
 const JXRand = {
     getInteger,
