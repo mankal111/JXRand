@@ -15,7 +15,7 @@ const getInteger = (min, max) => {
 }
 
 /**
- * Return a random float
+ * Returns a random float
  * @param {number} minimum
  * @param {number} maximum
  * @return {number}
