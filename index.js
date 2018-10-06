@@ -2,9 +2,9 @@
 
 /**
  * Returns a random integer
- * @param {number} minimum
- * @param {number} maximum
- * @return {number}
+ * @param {number} min minimum possible integer
+ * @param {number} max maximum possible integer
+ * @returns {number}
  */
 const getInteger = (min, max) => {
     if (isNaN(min) || isNaN(max)) {
@@ -16,9 +16,9 @@ const getInteger = (min, max) => {
 
 /**
  * Returns a random float
- * @param {number} minimum
- * @param {number} maximum
- * @return {number}
+ * @param {number} min minimum possible integer
+ * @param {number} max maximum possible integer
+ * @returns {number}
  */
 const getFloat = (min, max) => {
     if (isNaN(min) || isNaN(max)) {
