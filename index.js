@@ -56,27 +56,14 @@ const getInterval = (options) => {
         const minLength = options.minLength || 0;
         const maxLength = options.maxLength || options.max - options.min;
         const type = options.type || 'float';
-        let getRandomNumberFunction;
-        switch (type) {
-            case 'float':
-                getRandomNumberFunction = getFloat;
-                break;
-            case 'integer':
-                getRandomNumberFunction = getInteger;
-                break;
-            default:
-                throw "Not supported type";
-        }
-        const intervalLength = getRandomNumberFunction(minLength, maxLength);
-        const leftEndpoint = getRandomNumberFunction(options.min, options.max - intervalLength);
+        const intervalLength = getNumber({min: minLength, max: maxLength, type});
+        const leftEndpoint = getNumber({min: options.min, max: options.max - intervalLength, type});
         const rightEndpoint = leftEndpoint + intervalLength;
         return [leftEndpoint, rightEndpoint];
     }
 }
 
 const JXRand = {
-    getInteger,
-    getFloat,
     getNumber,
     getInterval
 }
