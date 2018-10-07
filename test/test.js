@@ -5,43 +5,41 @@ const JXRand = require('../index');
 
 //Not sure if this is the right way to test functions that return a random number,
 //since even with an implementation error the tests may randomly pass...
-describe('getInteger', () => {
+
+describe('getNumber', () => {
     it('should throw an error if it is called without parameters',() =>{
-        expect(() => JXRand.getInteger()).to.throw('Parameter is not a number!');
+        expect(() => JXRand.getNumber()).to.throw('Parameter is not an object');
     });
-    it('should throw an error if at least one of the two parameters is not a number',() =>{
-        expect(() => JXRand.getInteger('a','z')).to.throw('Parameter is not a number!');
+
+    it("should throw an error if any of the 'min' and 'max' parameters is not a number",() =>{
+        expect(() => JXRand.getNumber({min: 'a', max: 'z'}))
+            .to.throw("Parameter property 'min' or 'max' is not a number");
     });
-    it('should return an integer', () => {
-        const result = JXRand.getInteger(0, 10);
+
+    it("should throw an error if 'min' is greater than 'max'",() =>{
+        expect(() => JXRand.getNumber({min: 10, max: 0}))
+            .to.throw("Parameter property 'min' should be less or equal than 'max'");
+    });
+
+    it('should return a number of the given type', () => {
+        let result = JXRand.getNumber({min: 0, max: 10, type: 'float'});
+        expect(result).to.be.a('number');
+
+        result = JXRand.getNumber({min: 0, max: 10, type: 'integer'});
         expect(Number.isInteger(result)).to.equal(true);
     });
-    it('should return an integer in the given range', () => {
-        const max = 20;
-        const min = 10;
-        const result = JXRand.getInteger(min, max);
-        expect(result).to.not.be.below(min);
-        expect(result).to.not.be.above(max);
-    });
-});
 
-describe('getFloat', () => {
-    it('should throw an error if it is called without parameters',() =>{
-        expect(() => JXRand.getFloat()).to.throw('Parameter is not a number!');
-    });
-    it('should throw an error if at least one of the two parameters is not a number',() =>{
-        expect(() => JXRand.getFloat('a','z')).to.throw('Parameter is not a number!');
-    });
-    it('should return a number', () => {
-        const result = JXRand.getFloat(0, 10);
-        expect(result).to.be.a('number');
-    });
-    it('should return an integer in the given range', () => {
+    it('should return a number in the given range', () => {
         const max = 20;
         const min = 10;
-        const result = JXRand.getFloat(min, max);
+        const result = JXRand.getNumber({min, max});
         expect(result).to.not.be.below(min);
         expect(result).to.not.be.above(max);
+    });
+
+    it("should throw an error if 'type' is not supported",() =>{
+        expect(() => JXRand.getInterval({min: 0, max: 10, type: 'burger'}))
+            .to.throw("Not supported type");
     });
 });
 
