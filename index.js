@@ -29,6 +29,41 @@ const getFloat = (min, max) => {
 }
 
 /**
+ * Returns a random number
+ * @param {object} options - The properties of the random number
+ * @param {number} options.min - Minimum possible number
+ * @param {number} options.max - Maximum possible number
+ * @param {string} [options.type=float] - The type of the number
+ * @returns {number} The random number
+ */
+const getNumber = (options) => {
+    if (typeof options !== 'object') {
+        throw "Parameter is not an object";
+    } else if (isNaN(options.min) || isNaN(options.max)) {
+        throw "Parameter property 'min' or 'max' is not a number";
+    } else if (options.min > options.max) {
+        throw "Parameter property 'min' should be less or equal than 'max'";
+    } else {
+        const type = options.type || 'float';
+        let result;
+
+        switch (type) {
+            case 'float':
+                result = Math.random() * (options.max - options.min) + options.min;
+                break;
+            case 'integer':
+                const max = Math.floor(options.max);
+                const min = Math.ceil(options.min);
+                result = Math.floor(Math.random() * (max - min + 1)) + min;
+                break;
+            default:
+                throw "Not supported type";
+        }
+        return result;
+    }
+}
+
+/**
  * Returns a random interval
  * @param {object} options - The limits of the random interval
  * @param {number} options.min - Minimum possible endpoint
@@ -70,6 +105,7 @@ const getInterval = (options) => {
 const JXRand = {
     getInteger,
     getFloat,
+    getNumber,
     getInterval
 }
 
