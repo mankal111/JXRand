@@ -45,6 +45,43 @@ describe('getFloat', () => {
     });
 });
 
+describe('getNumber', () => {
+    it('should throw an error if it is called without parameters',() =>{
+        expect(() => JXRand.getNumber()).to.throw('Parameter is not an object');
+    });
+
+    it("should throw an error if any of the 'min' and 'max' parameters is not a number",() =>{
+        expect(() => JXRand.getNumber({min: 'a', max: 'z'}))
+            .to.throw("Parameter property 'min' or 'max' is not a number");
+    });
+
+    it("should throw an error if 'min' is greater than 'max'",() =>{
+        expect(() => JXRand.getNumber({min: 10, max: 0}))
+            .to.throw("Parameter property 'min' should be less or equal than 'max'");
+    });
+
+    it('should return a number of the given type', () => {
+        let result = JXRand.getNumber({min: 0, max: 10, type: 'float'});
+        expect(result).to.be.a('number');
+
+        result = JXRand.getNumber({min: 0, max: 10, type: 'integer'});
+        expect(Number.isInteger(result)).to.equal(true);
+    });
+
+    it('should return a number in the given range', () => {
+        const max = 20;
+        const min = 10;
+        const result = JXRand.getNumber({min, max});
+        expect(result).to.not.be.below(min);
+        expect(result).to.not.be.above(max);
+    });
+
+    it("should throw an error if 'type' is not supported",() =>{
+        expect(() => JXRand.getInterval({min: 0, max: 10, type: 'burger'}))
+            .to.throw("Not supported type");
+    });
+});
+
 describe('getInterval', () => {
     it('should throw an error if it is called without parameters',() =>{
         expect(() => JXRand.getInterval()).to.throw('Parameter is not an object');
