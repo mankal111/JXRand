@@ -1,34 +1,6 @@
 'use strict';
 
 /**
- * Returns a random integer
- * @param {number} min minimum possible integer
- * @param {number} max maximum possible integer
- * @returns {number}
- */
-const getInteger = (min, max) => {
-    if (isNaN(min) || isNaN(max)) {
-        throw "Parameter is not a number!";
-    } else {
-        return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
-    }
-}
-
-/**
- * Returns a random float
- * @param {number} min minimum possible integer
- * @param {number} max maximum possible integer
- * @returns {number}
- */
-const getFloat = (min, max) => {
-    if (isNaN(min) || isNaN(max)) {
-        throw "Parameter is not a number!";
-    } else {
-        return Math.random() * (max - min) + min;
-    }
-}
-
-/**
  * Returns a random number
  * @param {object} options - The properties of the random number
  * @param {number} options.min - Minimum possible number
