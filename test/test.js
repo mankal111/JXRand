@@ -45,7 +45,7 @@ describe('getNumber', () => {
 
 describe('getInterval', () => {
     it('should throw an error if it is called without parameters',() =>{
-        expect(() => JXRand.getNumber()).to.throw(TypeError, "Parameter's type is 'undefined' but it should be 'object'.");
+        expect(() => JXRand.getInterval()).to.throw(TypeError, "Parameter's type is 'undefined' but it should be 'object'.");
     });
 
     it("should throw an error if any of the 'min' and 'max' parameters is not a number",() =>{
