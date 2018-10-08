@@ -10,11 +10,11 @@
  */
 const getNumber = (options) => {
     if (typeof options !== 'object') {
-        throw "Parameter is not an object";
+        throw new TypeError(`Parameter's type is '${typeof options}' but it should be 'object'.`);
     } else if (isNaN(options.min) || isNaN(options.max)) {
-        throw "Parameter property 'min' or 'max' is not a number";
+        throw new TypeError(`The parameters 'min' and 'max' have values '${options.min}' and '${options.max}' respectively, but they should both be numbers.`);
     } else if (options.min > options.max) {
-        throw "Parameter property 'min' should be less or equal than 'max'";
+        throw new Error(`The parameter 'min' (value:${options.min}) is greater than 'max' (value:${options.max}) but 'min' should be less or equal than 'max'`);
     } else {
         const type = options.type || 'float';
         let result;
@@ -29,7 +29,7 @@ const getNumber = (options) => {
                 result = Math.floor(Math.random() * (max - min + 1)) + min;
                 break;
             default:
-                throw "Not supported type";
+                throw RangeError(`'${type}' is not a supported type`);
         }
         return result;
     }
@@ -47,11 +47,11 @@ const getNumber = (options) => {
  */
 const getInterval = (options) => {
     if (typeof options !== 'object') {
-        throw "Parameter is not an object";
+        throw new TypeError(`Parameter's type is '${typeof options}' but it should be 'object'.`);
     } else if (isNaN(options.min) || isNaN(options.max)) {
-        throw "Parameter property 'min' or 'max' is not a number";
+        throw new TypeError(`The parameters 'min' and 'max' have values '${options.min}' and '${options.max}' respectively, but they should both be numbers.`);
     } else if (options.min > options.max) {
-        throw "Parameter property 'min' should be less or equal than 'max'";
+        throw new Error(`The parameter 'min' (value:${options.min}) is greater than 'max' (value:${options.max}) but 'min' should be less or equal than 'max'`);
     } else {
         const minLength = options.minLength || 0;
         const maxLength = options.maxLength || options.max - options.min;
