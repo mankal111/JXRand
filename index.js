@@ -1,16 +1,27 @@
 'use strict';
 
 /**
- * Checks options for type or other errors
+ * Checks if options is an object
+ * @param {object} options - The options object
+ * @returns {boolean} True if options is an object
+ */
+const checkIfOptionsIsObject = (options) => {
+    if (typeof options === 'object') {
+        return true;
+    } else {
+        throw new TypeError(`Parameter's type is '${typeof options}' but it should be 'object'.`);
+    } 
+}
+
+/**
+ * Checks if min and max have the required values
  * @param {object} options - The properties of the random number
  * @param {number} options.min - Minimum possible number
  * @param {number} options.max - Maximum possible number
  * @returns {boolean} True if the options object is ok
  */
-const checkOptions = (options) => {
-    if (typeof options !== 'object') {
-        throw new TypeError(`Parameter's type is '${typeof options}' but it should be 'object'.`);
-    } else if (isNaN(options.min) || isNaN(options.max)) {
+const checkOptionsMinMax = (options) => {
+    if (isNaN(options.min) || isNaN(options.max)) {
         throw new TypeError(`The parameters 'min' and 'max' have values '${options.min}' and '${options.max}' respectively, but they should both be numbers.`);
     } else if (options.min > options.max) {
         throw new Error(`The parameter 'min' (value:${options.min}) is greater than 'max' (value:${options.max}) but 'min' should be less or equal than 'max'`);
@@ -28,7 +39,8 @@ const checkOptions = (options) => {
  * @returns {number} The random number
  */
 const getNumber = (options) => {
-    checkOptions(options);
+    checkIfOptionsIsObject(options);
+    checkOptionsMinMax(options);
     const type = options.type || 'float';
     let result;
     switch (type) {
@@ -57,7 +69,8 @@ const getNumber = (options) => {
  * @returns {number[]} Array with the two endpoints of the random interval
  */
 const getInterval = (options) => {
-    checkOptions(options);
+    checkIfOptionsIsObject(options);
+    checkOptionsMinMax(options);
     const minLength = options.minLength || 0;
     const maxLength = options.maxLength || options.max - options.min;
     const type = options.type || 'float';
