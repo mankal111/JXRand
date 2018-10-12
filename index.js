@@ -5,7 +5,7 @@
  * @param {object} options - The options object
  * @returns {boolean} True if options is an object
  */
-const checkIfOptionsIsObject = (options) => {
+const checkIfOptionsIsObject = function(options) {
     if (typeof options === 'object') {
         return true;
     } else {
@@ -20,7 +20,7 @@ const checkIfOptionsIsObject = (options) => {
  * @param {number} options.max - Maximum possible number
  * @returns {boolean} True if the options object is ok
  */
-const checkOptionsMinMax = (options) => {
+const checkOptionsMinMax = function(options) {
     if (isNaN(options.min) || isNaN(options.max)) {
         throw new TypeError(`The parameters 'min' and 'max' have values '${options.min}' and '${options.max}' respectively, but they should both be numbers.`);
     } else if (options.min > options.max) {
@@ -38,7 +38,7 @@ const checkOptionsMinMax = (options) => {
  * @param {string} [options.type=float] - The type of the number
  * @returns {number} The random number
  */
-const getNumber = (options) => {
+const getNumber = function(options) {
     checkIfOptionsIsObject(options);
     checkOptionsMinMax(options);
     const type = options.type || 'float';
@@ -68,7 +68,7 @@ const getNumber = (options) => {
  * @param {string} [options.type=float] - The type of the endpoints
  * @returns {number[]} Array with the two endpoints of the random interval
  */
-const getInterval = (options) => {
+const getInterval = function(options) {
     checkIfOptionsIsObject(options);
     checkOptionsMinMax(options);
     const minLength = options.minLength || 0;
