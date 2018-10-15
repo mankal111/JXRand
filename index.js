@@ -16,7 +16,7 @@ function checkIfOptionsIsObject(options) {
  * @returns {boolean} True if parameter is an array
  */
 function checkIfParameterIsArray(array) {
-  if (Array.isArray(array)) {
+  if (array.constructor === Array) {
     return true;
   }
   throw new TypeError(`Parameter's type is '${typeof array}' but it should be 'array'.`);
