@@ -37,6 +37,14 @@ A possible value of `randomInterval` is `[43, 75]`.
 
 The `minLength`, `maxLength` and `type` properties are optional.
 
+To get a random element from a given array:
+
+```js
+    var randomElement = JXRand.getElement([1, 2, 3]);
+```
+
+The `randomElement` should now contain one random element of the array.
+
 ## Tests
 ```
     npm test

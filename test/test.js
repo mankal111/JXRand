@@ -102,3 +102,14 @@ describe('getInterval', () => {
       .to.throw(RangeError, "'burger' is not a supported type");
   });
 });
+
+describe('getNumber', () => {
+  it('should throw an error if it is called without parameters', () => {
+    expect(() => JXRand.getRandomElement(1)).to.throw(TypeError, "Parameter's type is 'number' but it should be 'array'.");
+  });
+
+  it('should return an element of the given array', () => {
+    const givenArray = [1, 2, 3];
+    expect(givenArray.includes(JXRand.getRandomElement(givenArray))).to.equal(true);
+  });
+});
