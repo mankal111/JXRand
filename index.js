@@ -78,9 +78,19 @@ function getInterval(options) {
   return [leftEndpoint, rightEndpoint];
 }
 
+/**
+ * Returns a random element from given array
+ * @param {array} array - The array
+ * @returns The random element
+ */
+function getRandomElement(array) {
+  return array[getNumber({ min: 0, max: array.length - 1, type: 'integer' })];
+}
+
 const JXRand = {
   getNumber,
   getInterval,
+  getRandomElement,
 };
 
 module.exports = JXRand;
