@@ -11,6 +11,18 @@ function checkIfOptionsIsObject(options) {
 }
 
 /**
+ * Checks if parameter is an array
+ * @param {array} array - The array parameter
+ * @returns {boolean} True if parameter is an array
+ */
+function checkIfParameterIsArray(array) {
+  if (Array.isArray(array)) {
+    return true;
+  }
+  throw new TypeError(`Parameter's type is '${typeof array}' but it should be 'array'.`);
+}
+
+/**
  * Checks if min and max have the required values
  * @param {object} options - The properties of the random number
  * @param {number} options.min - Minimum possible number
@@ -84,6 +96,7 @@ function getInterval(options) {
  * @returns The random element
  */
 function getRandomElement(array) {
+  checkIfParameterIsArray(array);
   return array[getNumber({ min: 0, max: array.length - 1, type: 'integer' })];
 }
 
