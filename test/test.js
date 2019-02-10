@@ -113,3 +113,17 @@ describe('getNumber', () => {
     expect(givenArray.includes(JXRand.getRandomElement(givenArray))).to.equal(true);
   });
 });
+
+describe('getRandomValuesObject', () => {
+  it('should return an object with random values described in the argument array', () => {
+    const randomValuesSpecs = [
+      { name: 'var1', type: { min: 1, max: 3, type: 'integer' } },
+      { name: 'var2', type: { min: 4, max: 6, type: 'integer' } },
+    ];
+    const randomValuesObject = JXRand.getRandomValuesObject(randomValuesSpecs);
+    expect(randomValuesObject.var1).to.not.be.below(1);
+    expect(randomValuesObject.var1).to.not.be.above(3);
+    expect(randomValuesObject.var2).to.not.be.below(4);
+    expect(randomValuesObject.var2).to.not.be.above(6);
+  });
+});

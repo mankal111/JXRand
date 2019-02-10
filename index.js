@@ -100,10 +100,25 @@ function getRandomElement(array) {
   return array[getNumber({ min: 0, max: array.length - 1, type: 'integer' })];
 }
 
+/**
+ * Returns an object with random values in given names and given specs
+ * @param {{name: String, type: Object}[]} specs - The array with the names and the spec
+ * @returns {Object} An object with the random values in the given names as keys
+ */
+function getRandomValuesObject(specs) {
+  return specs.reduce((result, item) => {
+    // eslint-disable-next-line no-param-reassign
+    result[item.name] = getNumber(item.type);
+    return result;
+  },
+  {});
+}
+
 const JXRand = {
   getNumber,
   getInterval,
   getRandomElement,
+  getRandomValuesObject,
 };
 
 module.exports = JXRand;
