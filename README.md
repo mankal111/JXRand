@@ -45,6 +45,19 @@ To get a random element from a given array:
 
 The `randomElement` should now contain one random element of the array.
 
+In case we want to create an object with random values in custom keys, we can use `getRandomValuesObject`.
+
+We are using an array of objects as an argument where each object should contain the `name` of the key and the `type` of the random value.
+
+```js
+    var randomValuesObject = JXRand.getRandomValuesObject([
+        { name: 'randVal1', type: { min: 1, max: 3, type: 'integer' } },
+        { name: 'randVal2', type: { min: 4, max: 6, type: 'integer' } },
+    ]);
+```
+
+A possible `randomValuesObject` of the preceding example is `{ randVal1: 3, randVal2: 5 }`.
+
 ## Tests
 ```
     npm test
