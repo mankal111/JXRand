@@ -9,7 +9,7 @@ Javascript eXtended Random number generator
 
 ## Usage
 ```js
-    var JXRand = require('JXRand');
+    var JXRand = require('jxrand');
 ```
 
 ### getNumber
@@ -43,7 +43,7 @@ The `minLength`, `maxLength` and `type` properties are optional.
 To get a random element from a given array:
 
 ```js
-    var randomElement = JXRand.getElement([1, 2, 3]);
+    var randomElement = JXRand.getRandomElement([1, 2, 3]);
 ```
 
 The `randomElement` should now contain one random element of the array.
