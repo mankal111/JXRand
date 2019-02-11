@@ -12,6 +12,7 @@ Javascript eXtended Random number generator
     var JXRand = require('JXRand');
 ```
 
+### getNumber
 To get a random integer between 10 and 20:
 
 ```js
@@ -21,6 +22,7 @@ To get a random integer between 10 and 20:
 The `type` property is optional with a default value of `float`.
 For now the supported types are `integer` and `float`.
 
+### getInterval
 To get a random interval, with integer endpoints between 0 and 100 and length between 10 and 50:
 
 ```js
@@ -37,6 +39,7 @@ A possible value of `randomInterval` is `[43, 75]`.
 
 The `minLength`, `maxLength` and `type` properties are optional.
 
+### getElement
 To get a random element from a given array:
 
 ```js
@@ -44,6 +47,20 @@ To get a random element from a given array:
 ```
 
 The `randomElement` should now contain one random element of the array.
+
+### getRandomValuesObject
+In case we want to create an object with random values in custom keys, we can use `getRandomValuesObject`.
+
+We are using an array of objects as an argument where each object should contain the `name` of the key and the `type` of the random value.
+
+```js
+    var randomValuesObject = JXRand.getRandomValuesObject([
+        { name: 'randVal1', type: { min: 1, max: 3, type: 'integer' } },
+        { name: 'randVal2', type: { min: 4, max: 6, type: 'integer' } },
+    ]);
+```
+
+A possible `randomValuesObject` of the preceding example is `{ randVal1: 3, randVal2: 5 }`.
 
 ## Tests
 ```
